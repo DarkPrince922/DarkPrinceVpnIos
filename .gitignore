@@ -1,0 +1,17 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj
+*.xcworkspace
+!*.xcodeproj/project.xcworkspace
+xcuserdata/
+*.xcuserstate
+.swiftpm/
+
+# Проект генерируется из project.yml через XcodeGen
+DarkPrinceVPN.xcodeproj/
+
+# Ядро Xray скачивается скриптом, в репозитории не хранится (~100 МБ)
+Vendor/LibXray.xcframework/
+
+.DS_Store

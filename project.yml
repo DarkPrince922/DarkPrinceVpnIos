@@ -1,0 +1,94 @@
+name: DarkPrinceVPN
+options:
+  bundleIdPrefix: ru.darkprince.vpn
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM}
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+
+packages:
+  Tun2SocksKit:
+    url: https://github.com/EbrahimTahernejad/Tun2SocksKit
+    from: 5.16.0
+
+targets:
+  # ---------------------------------------------------------------------------
+  # Приложение
+  # ---------------------------------------------------------------------------
+  DarkPrinceVPN:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/App
+      - path: Sources/Shared
+      - path: Resources
+        optional: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ru.darkprince.vpn
+        INFOPLIST_KEY_CFBundleDisplayName: DarkPrince VPN
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_NSCameraUsageDescription: Камера нужна, чтобы отсканировать QR-код подписки.
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: Доступ к фотографиям нужен, чтобы распознать QR-код с картинки.
+        TARGETED_DEVICE_FAMILY: "1,2"
+    entitlements:
+      path: Sources/App/DarkPrinceVPN.entitlements
+      properties:
+        com.apple.developer.networking.networkextension:
+          - packet-tunnel-provider
+        com.apple.security.application-groups:
+          - group.ru.darkprince.vpn
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)ru.darkprince.vpn
+    dependencies:
+      - target: DarkPrinceTunnel
+        embed: true
+        codeSign: true
+
+  # ---------------------------------------------------------------------------
+  # Сетевое расширение: здесь живут Xray и мост TUN → SOCKS
+  # ---------------------------------------------------------------------------
+  DarkPrinceTunnel:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/Tunnel
+      - path: Sources/Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ru.darkprince.vpn.tunnel
+        INFOPLIST_KEY_CFBundleDisplayName: DarkPrince Tunnel
+        # статическая библиотека Go: нужен полный набор символов
+        OTHER_LDFLAGS: -ObjC
+    info:
+      path: Sources/Tunnel/Info.plist
+      properties:
+        CFBundleDisplayName: DarkPrince Tunnel
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
+    entitlements:
+      path: Sources/Tunnel/DarkPrinceTunnel.entitlements
+      properties:
+        com.apple.developer.networking.networkextension:
+          - packet-tunnel-provider
+        com.apple.security.application-groups:
+          - group.ru.darkprince.vpn
+        keychain-access-groups:
+          - $(AppIdentifierPrefix)ru.darkprince.vpn
+    dependencies:
+      - package: Tun2SocksKit
+        product: Tun2SocksKit
+      - framework: Vendor/LibXray.xcframework
+        embed: false
