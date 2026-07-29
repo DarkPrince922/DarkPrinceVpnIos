@@ -1,5 +1,12 @@
 import Foundation
 
+/// Итог создания платежа. Обычный `Result` не подходит: у него тип ошибки
+/// должен соответствовать `Error`, а кабинет отдаёт просто текст для показа.
+enum TopupResult {
+    case created(TopupResponse)
+    case failed(String)
+}
+
 struct PaymentMethod: Identifiable, Equatable {
     let id: String
     let name: String
@@ -44,15 +51,15 @@ final class BalanceRepository {
         }
     }
 
-    func topup(amountKopeks: Int64, method: String) async -> Result<TopupResponse, String> {
+    func topup(amountKopeks: Int64, method: String) async -> TopupResult {
         do {
             let response: TopupResponse = try await api.post(
                 "cabinet/balance/topup",
                 body: TopupRequest(amountKopeks: amountKopeks, paymentMethod: method)
             )
-            return .success(response)
+            return .created(response)
         } catch {
-            return .failure(error.localizedDescription)
+            return .failed(error.localizedDescription)
         }
     }
 

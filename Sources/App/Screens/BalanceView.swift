@@ -29,7 +29,7 @@ final class BalanceModel: ObservableObject {
         info = nil
         let result = await repo.topup(amountKopeks: Int64(rubles) * 100, method: method.id)
         switch result {
-        case .success(let response):
+        case .created(let response):
             if let urlString = response.paymentUrl, let url = URL(string: urlString) {
                 paymentUrl = url
                 startPaymentWatch()
@@ -37,7 +37,7 @@ final class BalanceModel: ObservableObject {
                 info = response.message ?? "Платёж создан"
                 startPaymentWatch()
             }
-        case .failure(let message):
+        case .failed(let message):
             error = message
         }
     }
