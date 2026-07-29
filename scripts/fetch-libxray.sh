@@ -35,4 +35,11 @@ mkdir -p "${VENDOR}"
 rm -rf "${TARGET}"
 cp -R "${SRC}" "${TARGET}"
 
+# Xcode складывает заголовки всех xcframework'ов в один каталог include/, и
+# две библиотеки со своими module.modulemap дерутся за одно и то же имя файла
+# («Multiple commands produce …/include/module.modulemap»). Модульная карта
+# hev-socks5-tunnel приходит из чужого пакета, поэтому убираем свою: заголовок
+# libXray.h подключается через bridging header расширения.
+find "${TARGET}" -name 'module.modulemap' -delete
+
 echo "Готово: ${TARGET}"

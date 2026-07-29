@@ -1,5 +1,4 @@
 import Foundation
-import LibXray
 
 /// Тонкая обёртка над libXray. Библиотека принимает и возвращает JSON через
 /// одну C-функцию `CGoInvoke`; память ответа выделяет Go, поэтому её
