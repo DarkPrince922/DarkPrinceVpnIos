@@ -72,7 +72,6 @@ targets:
         # статическая библиотека Go: нужен полный набор символов
         OTHER_LDFLAGS: -ObjC
         SWIFT_OBJC_BRIDGING_HEADER: Sources/Tunnel/Tunnel-Bridging-Header.h
-        HEADER_SEARCH_PATHS: $(inherited) $(BUILT_PRODUCTS_DIR)/include
     info:
       path: Sources/Tunnel/Info.plist
       properties:
