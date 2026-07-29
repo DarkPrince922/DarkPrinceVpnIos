@@ -69,8 +69,10 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: ru.darkprince.vpn.tunnel
         INFOPLIST_KEY_CFBundleDisplayName: DarkPrince Tunnel
-        # статическая библиотека Go: нужен полный набор символов
-        OTHER_LDFLAGS: -ObjC
+        # статическая библиотека Go: нужен полный набор символов, а её
+        # рантайм ходит за резолвером в системную libresolv (res_9_ninit
+        # и соседи) — без -lresolv линковка падает на неразрешённых символах
+        OTHER_LDFLAGS: -ObjC -lresolv
         SWIFT_OBJC_BRIDGING_HEADER: Sources/Tunnel/Tunnel-Bridging-Header.h
     info:
       path: Sources/Tunnel/Info.plist
