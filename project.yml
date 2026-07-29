@@ -35,6 +35,9 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: ru.darkprince.vpn
+        # без этого Xcode не собирает Info.plist приложения из ключей ниже
+        # (у расширения он задан файлом — там нужен блок NSExtension)
+        GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: DarkPrince VPN
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
