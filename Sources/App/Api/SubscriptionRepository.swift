@@ -132,9 +132,13 @@ final class SubscriptionRepository {
             if let cached = store.subUrl(for: selectedId) { return cached }
         }
 
+        // `??` не пропускает через себя await, поэтому запасной запрос делаем явно
         let link: ConnectionLinkResponse? = try? await api.get("cabinet/subscription/connection-link")
-        let fromStatus = link?.subscriptionUrl ?? (try? await status())?.subscriptionUrl
-        let url = fromStatus ?? store.subUrl(for: nil)
+        var fromServer = link?.subscriptionUrl
+        if fromServer == nil {
+            fromServer = try? await status().subscriptionUrl
+        }
+        let url = fromServer ?? store.subUrl(for: nil)
         if let url { store.setSubUrl(url, for: nil) }
         return url
     }

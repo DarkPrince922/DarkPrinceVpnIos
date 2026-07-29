@@ -153,14 +153,12 @@ enum TcpPing {
     static func measure(host: String, port: Int, timeout: TimeInterval = 3) async -> Int64? {
         await withCheckedContinuation { continuation in
             let queue = DispatchQueue(label: "ping.\(host).\(port)")
-            var resumed = false
-            let lock = NSLock()
+            // ответить можно только один раз: соединение и таймаут срабатывают
+            // на разных потоках и оба зовут finish
+            let once = OnceGuard()
 
-            func finish(_ value: Int64?) {
-                lock.lock()
-                defer { lock.unlock() }
-                guard !resumed else { return }
-                resumed = true
+            @Sendable func finish(_ value: Int64?) {
+                guard once.claim() else { return }
                 continuation.resume(returning: value)
             }
 
@@ -184,6 +182,20 @@ enum TcpPing {
                 finish(nil)
             }
         }
+    }
+}
+
+/// Одноразовый флаг под замком: продолжение корутины нельзя возобновлять дважды.
+private final class OnceGuard: @unchecked Sendable {
+    private let lock = NSLock()
+    private var used = false
+
+    func claim() -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        if used { return false }
+        used = true
+        return true
     }
 }
 
