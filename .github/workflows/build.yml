@@ -1,0 +1,54 @@
+name: Build
+
+# Автор работает без macOS, поэтому сборка на раннере — единственная проверка,
+# что код компилируется. Подпись отключена: сертификатов здесь нет и не нужно.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "README.md"
+      - "**/*.md"
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Установить XcodeGen
+        run: brew install xcodegen xcbeautify
+
+      - name: Кэш ядра Xray
+        id: libxray-cache
+        uses: actions/cache@v4
+        with:
+          path: Vendor/LibXray.xcframework
+          key: libxray-${{ hashFiles('scripts/fetch-libxray.sh') }}
+
+      - name: Скачать ядро Xray
+        if: steps.libxray-cache.outputs.cache-hit != 'true'
+        run: ./scripts/fetch-libxray.sh
+
+      - name: Сгенерировать проект
+        run: xcodegen generate
+
+      - name: Собрать
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project DarkPrinceVPN.xcodeproj \
+            -scheme DarkPrinceVPN \
+            -configuration Debug \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            | xcbeautify
