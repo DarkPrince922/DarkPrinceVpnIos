@@ -41,7 +41,11 @@ targets:
         INFOPLIST_KEY_CFBundleDisplayName: DarkPrince VPN
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
-        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        # На iPhone интерфейс только портретный — как в Android-версии.
+        # iPad обязан поддерживать все ориентации, иначе Apple заворачивает
+        # сборку на приёмке; альтернатива (UIRequiresFullScreen) устарела.
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
         INFOPLIST_KEY_NSCameraUsageDescription: Камера нужна, чтобы отсканировать QR-код подписки.
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: Доступ к фотографиям нужен, чтобы распознать QR-код с картинки.
         TARGETED_DEVICE_FAMILY: "1,2"
@@ -81,6 +85,11 @@ targets:
       path: Sources/Tunnel/Info.plist
       properties:
         CFBundleDisplayName: DarkPrince Tunnel
+        # Версии обязаны совпадать с приложением, иначе App Store отклоняет
+        # загрузку. XcodeGen без этого пишет в plist расширения свои дефолты
+        # (1.0 / 1), а приложение берёт версию из MARKETING_VERSION.
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         NSExtension:
           NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
