@@ -68,7 +68,7 @@ actor ApiClient {
         query: [String: String?] = [:],
         authorized: Bool = true
     ) async throws -> T {
-        try await request(path, method: "GET", query: query, body: Optional<Never>.none, authorized: authorized)
+        try await request(path, method: "GET", query: query, body: Optional<EmptyBody>.none, authorized: authorized)
     }
 
     @discardableResult
@@ -86,7 +86,7 @@ actor ApiClient {
         _ path: String,
         query: [String: String?] = [:]
     ) async throws -> T {
-        try await request(path, method: "DELETE", query: query, body: Optional<Never>.none, authorized: true)
+        try await request(path, method: "DELETE", query: query, body: Optional<EmptyBody>.none, authorized: true)
     }
 
     @discardableResult
