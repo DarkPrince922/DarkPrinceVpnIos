@@ -34,4 +34,28 @@ struct ProxyProfile: Codable, Identifiable, Equatable {
     var headerType: String?
     var vmessSecurity: String = "auto"
     var rawConfig: String?
+
+    /// Как узел выглядит в списке серверов: протокол, шифрование и транспорт.
+    /// Адрес и домен намеренно не показываем — пользователю они ничего не
+    /// говорят, а на чужом экране или скриншоте выдают инфраструктуру.
+    var transportLabel: String {
+        [
+            proxyProtocol.rawValue,
+            security.isEmpty || security == "none" ? nil : security,
+            networkLabel,
+        ]
+        .compactMap { $0 }
+        .joined(separator: " · ")
+    }
+
+    private var networkLabel: String {
+        switch network.lowercased() {
+        case "ws": return "websocket"
+        case "grpc": return "gRPC"
+        case "h2", "http": return "http/2"
+        case "kcp": return "mkcp"
+        case "": return "tcp"
+        case let other: return other
+        }
+    }
 }

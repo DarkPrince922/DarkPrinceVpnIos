@@ -54,6 +54,9 @@ enum LinkParser {
             var proxyProtocol = ProxyProtocol.vless
             var address = ""
             var port = 443
+            // транспорт и шифрование показываем в списке серверов вместо адреса
+            var network = "tcp"
+            var security = "none"
 
             for outbound in outbounds {
                 guard let object = outbound as? [String: Any],
@@ -66,6 +69,10 @@ enum LinkParser {
                 if let server = server as? [String: Any] {
                     address = server["address"] as? String ?? address
                     port = intValue(server["port"]) ?? port
+                }
+                if let stream = object["streamSettings"] as? [String: Any] {
+                    network = stream["network"] as? String ?? network
+                    security = stream["security"] as? String ?? security
                 }
                 break
             }
@@ -84,6 +91,8 @@ enum LinkParser {
                 address: address.isEmpty ? "-" : address,
                 port: port,
                 userId: "",
+                network: network,
+                security: security,
                 rawConfig: rawConfig
             )
         }

@@ -47,7 +47,7 @@ struct ServersView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(server.name)
                     .foregroundStyle(.primary)
-                Text("\(server.proxyProtocol.rawValue.uppercased()) · \(server.address)")
+                Text(server.transportLabel)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
