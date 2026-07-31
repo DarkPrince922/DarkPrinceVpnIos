@@ -235,6 +235,12 @@ struct PlansView: View {
                 }
                 .buttonStyle(.bordered)
                 .disabled(model.purchasing)
+            } else {
+                // без пояснения кнопка просто исчезала, и было непонятно,
+                // это ограничение тарифа или сбой запроса
+                Text(unavailableReason(devices))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
 
             if devices.reduceAvailable, let limit = devices.deviceLimit, limit > 1 {
@@ -251,6 +257,14 @@ struct PlansView: View {
             .font(.footnote)
         }
         .card()
+    }
+
+    private func unavailableReason(_ devices: DevicesInfo) -> String {
+        if let note = devices.purchaseNote, !note.isEmpty { return note }
+        if let max = devices.maxDeviceLimit, let limit = devices.deviceLimit, limit >= max {
+            return "Достигнут максимум тарифа: \(max) устройств"
+        }
+        return "Докупка устройств для этой подписки недоступна"
     }
 
     private var deviceSubscriptionName: String {

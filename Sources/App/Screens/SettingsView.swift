@@ -3,53 +3,120 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject private var session: SessionModel
     @State private var showUpgrade = false
+    @State private var path: [Route] = []
+
+    private enum Route: Hashable { case share, referral, devices }
 
     private var user: UserDto? { AuthRepository.shared.currentUser }
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack {
                 Theme.background.ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 16) {
-                        accountCard
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text("Настройки")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .padding(.top, 8)
+                            .padding(.bottom, 20)
 
-                        if session.isGuest {
-                            Button { showUpgrade = true } label: { ownSubscriptionCard }
-                                .buttonStyle(.plain)
+                        SectionHeader("Аккаунт")
+                        GroupCard {
+                            SettingsRow(
+                                systemName: "checkmark.shield.fill",
+                                title: identity,
+                                subtitle: accountHint,
+                                showChevron: false
+                            )
+                            if session.isGuest {
+                                RowDivider()
+                                SettingsRow(
+                                    systemName: "bag.fill",
+                                    title: "Своя подписка",
+                                    subtitle: "Зарегистрируйтесь и купите собственную"
+                                ) {
+                                    showUpgrade = true
+                                }
+                            }
+                        }
+
+                        SectionHeader("Подключение").padding(.top, 22)
+                        GroupCard {
+                            SettingsRow(
+                                systemName: "square.grid.2x2.fill",
+                                title: "Приложения через VPN",
+                                subtitle: "iOS не даёт выбирать приложения — только корпоративным профилям",
+                                tint: .gray,
+                                showChevron: false
+                            )
                         }
 
                         if session.isLoggedIn {
-                            NavigationLink { ShareSubscriptionView() } label: { shareCard }
-                                .buttonStyle(.plain)
-                            NavigationLink { ReferralView() } label: { referralCard }
-                                .buttonStyle(.plain)
-                            NavigationLink { DevicesView(subscriptionId: nil) } label: { devicesCard }
-                                .buttonStyle(.plain)
-                        }
-
-                        splitTunnelNote
-
-                        if session.isLoggedIn && session.usingSharedSubscription {
-                            Button("Отключить гостевой доступ") {
-                                session.dropSharedSubscription()
-                                Task { await SubscriptionModel.shared.refresh(force: true) }
+                            SectionHeader("Подписка").padding(.top, 22)
+                            GroupCard {
+                                SettingsRow(
+                                    systemName: "iphone.gen3",
+                                    title: "Подключённые устройства",
+                                    subtitle: "Отключите лишние, чтобы освободить лимит"
+                                ) {
+                                    path.append(.devices)
+                                }
+                                RowDivider()
+                                SettingsRow(
+                                    systemName: "qrcode",
+                                    title: "Поделиться подпиской",
+                                    subtitle: "QR-код для близких, без доступа к оплате"
+                                ) {
+                                    path.append(.share)
+                                }
+                                RowDivider()
+                                SettingsRow(
+                                    systemName: "person.badge.plus",
+                                    title: "Пригласить друга",
+                                    subtitle: "Бонусы с платежей приглашённых",
+                                    tint: Theme.goldSoft
+                                ) {
+                                    path.append(.referral)
+                                }
                             }
-                            .buttonStyle(.bordered)
-                            .frame(maxWidth: .infinity)
                         }
 
-                        Button(session.isGuest ? "Отключить гостевой доступ" : "Выйти из аккаунта") {
-                            Task { await session.logOut() }
+                        GroupCard {
+                            if session.isLoggedIn && session.usingSharedSubscription {
+                                SettingsRow(
+                                    systemName: "qrcode.viewfinder",
+                                    title: "Отключить гостевой доступ",
+                                    subtitle: "Перестать пользоваться чужой подпиской",
+                                    showChevron: false
+                                ) {
+                                    session.dropSharedSubscription()
+                                    Task { await SubscriptionModel.shared.refresh(force: true) }
+                                }
+                                RowDivider()
+                            }
+                            SettingsRow(
+                                systemName: "rectangle.portrait.and.arrow.right",
+                                title: session.isGuest ? "Отключить гостевой доступ" : "Выйти из аккаунта",
+                                tint: .red,
+                                showChevron: false
+                            ) {
+                                Task { await session.logOut() }
+                            }
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.red)
-                        .frame(maxWidth: .infinity)
+                        .padding(.top, 22)
                     }
-                    .padding(16)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 24)
                 }
             }
-            .navigationTitle("Ещё")
+            .navigationDestination(for: Route.self) { destination in
+                switch destination {
+                case .share: ShareSubscriptionView()
+                case .referral: ReferralView()
+                case .devices: DevicesView(subscriptionId: nil)
+                }
+            }
         }
         .sheet(isPresented: $showUpgrade) {
             LoginView(mode: .upgrade) { showUpgrade = false }
@@ -57,75 +124,15 @@ struct SettingsView: View {
         }
     }
 
-    private var accountCard: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("Аккаунт").font(.caption).foregroundStyle(.secondary)
-            Text(session.isGuest ? "Гостевой доступ по подписке" : (user?.displayName ?? "—"))
-                .font(.headline)
-
-            if session.isGuest {
-                Text("Оплата и управление подпиской доступны у её владельца")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            } else if session.usingSharedSubscription {
-                Text("Пока работает подписка, которой с вами поделились. Купите свою — приложение переключится на неё само.")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .card()
+    private var identity: String {
+        session.isGuest ? "Гостевой доступ по подписке" : (user?.displayName ?? "—")
     }
 
-    private var ownSubscriptionCard: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Своя подписка").font(.headline)
-            Text("Зарегистрируйтесь через Telegram или почту и купите собственную подписку. Гостевой доступ будет работать, пока не заработает ваша.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
+    private var accountHint: String? {
+        if session.isGuest { return "Оплата и управление подпиской — у владельца" }
+        if session.usingSharedSubscription {
+            return "Работает чужая подписка. Купите свою — переключится сама"
         }
-        .card()
-    }
-
-    private var shareCard: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Поделиться подпиской").font(.headline)
-            Text("QR-код для близких: они подключатся к вашей подписке без доступа к оплате")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-        .card()
-    }
-
-    private var referralCard: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Пригласить друга").font(.headline)
-            Text("Делитесь ссылкой и получайте бонусы с платежей приглашённых")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-        .card()
-    }
-
-    private var devicesCard: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Подключённые устройства").font(.headline)
-            Text("Отключите лишние, чтобы освободить места в лимите подписки")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-        .card()
-    }
-
-    /// На Android здесь выбор приложений для VPN. На iOS такого API нет:
-    /// per-app VPN доступен только под управлением MDM, поэтому честно
-    /// объясняем это вместо неработающего экрана.
-    private var splitTunnelNote: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Приложения через VPN").font(.headline)
-            Text("iOS не разрешает приложениям выбирать, какие программы идут через VPN, — такой доступ есть только у корпоративных профилей. Разделение по сайтам и адресам настраивается на стороне сервиса.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-        .card()
+        return user?.firstName
     }
 }

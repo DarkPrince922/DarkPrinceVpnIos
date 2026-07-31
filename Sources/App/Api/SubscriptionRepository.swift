@@ -22,6 +22,8 @@ struct DevicesInfo: Equatable {
     var maxDeviceLimit: Int?
     var purchaseAvailable: Bool
     var reduceAvailable: Bool
+    /// Пояснение, почему докупка недоступна.
+    var purchaseNote: String?
 }
 
 struct TrafficPackage: Equatable, Hashable {
@@ -380,6 +382,9 @@ final class SubscriptionRepository {
         var pricePerDevice: Int64?
         var maxLimit: Int?
         var purchaseAvailable = false
+        // почему докупка недоступна — иначе кнопка просто исчезает и
+        // непонятно, это ограничение тарифа или сбой запроса
+        var purchaseNote: String?
         var priceQuery = subscriptionQuery(subscriptionId)
         priceQuery["devices"] = "1"
         if let price: JSONValue = try? await api.get(
@@ -390,6 +395,13 @@ final class SubscriptionRepository {
             pricePerDevice = price["price_per_device_kopeks"]?.int64Value
             maxLimit = price["max_device_limit"]?.intValue
             if limit == nil { limit = price["current_device_limit"]?.intValue }
+            if !purchaseAvailable || pricePerDevice == nil {
+                purchaseNote = price["message"]?.stringValue
+                    ?? price["reason"]?.stringValue
+                    ?? price["detail"]?.stringValue
+            }
+        } else {
+            purchaseNote = "Не удалось узнать цену устройства"
         }
 
         var reduceAvailable = false
@@ -408,7 +420,8 @@ final class SubscriptionRepository {
             pricePerDeviceKopeks: pricePerDevice,
             maxDeviceLimit: maxLimit,
             purchaseAvailable: purchaseAvailable && pricePerDevice != nil,
-            reduceAvailable: reduceAvailable
+            reduceAvailable: reduceAvailable,
+            purchaseNote: purchaseNote
         )
     }
 
