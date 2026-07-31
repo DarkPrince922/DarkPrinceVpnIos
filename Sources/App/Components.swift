@@ -90,6 +90,11 @@ struct TagChip: View {
     let text: String
     var tint: Color = Theme.gold
 
+    init(_ text: String, tint: Color = Theme.gold) {
+        self.text = text
+        self.tint = tint
+    }
+
     var body: some View {
         Text(text)
             .font(.caption2)
