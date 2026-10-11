@@ -1,0 +1,166 @@
+Timestamp               Ty Process[PID:TID]
+2026-10-11 16:43:29.639 Df DarkPrinceVPN[4604:4c0e] [com.apple.xpc:connection] [0x103305300] activating connection: mach=true listener=false peer=false name=com.apple.cfprefsd.daemon
+2026-10-11 16:43:29.639 Df DarkPrinceVPN[4604:4c08] (libMobileGestalt.dylib) No persisted cache on this platform.
+2026-10-11 16:43:29.640 Df DarkPrinceVPN[4604:4c0f] [com.apple.BoardServices:XPCErrors] [C:1] Alloc com.apple.frontboard.systemappservices
+2026-10-11 16:43:29.640 Df DarkPrinceVPN[4604:4c0f] [com.apple.xpc:connection] [0x103005480] activating connection: mach=false listener=false peer=false name=(anonymous)
+2026-10-11 16:43:29.644 Df DarkPrinceVPN[4604:4c0d] [com.apple.UIKit:BackgroundTask] Creating new assertion because there is no existing background assertion.
+2026-10-11 16:43:29.644 A  DarkPrinceVPN[4604:4c0e] (CoreFoundation) Loading Preferences From User Session CFPrefsD
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c0d] [com.apple.UIKit:BackgroundTask] Creating new background assertion
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c0d] [com.apple.UIKit:BackgroundTask] Created new background assertion <BKSProcessAssertion: 0x600002108ff0>
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c0d] [com.apple.runningboard:connection] Initializing connection
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c0d] [com.apple.runningboard:process] Removing all cached process handles
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c12] [com.apple.runningboard:connection] Sending handshake request attempt #1 to server
+2026-10-11 16:43:29.648 Df DarkPrinceVPN[4604:4c0d] [com.apple.runningboard:connection] Creating connection to com.apple.runningboard
+2026-10-11 16:43:29.649 Df DarkPrinceVPN[4604:4c0d] [com.apple.xpc:connection] [0x1033051f0] activating connection: mach=true listener=false peer=false name=com.apple.runningboard
+2026-10-11 16:43:29.649 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason added: 10; deactivation reasons: 0 -> 1024; animating application lifecycle event: 0
+2026-10-11 16:43:29.650 Df DarkPrinceVPN[4604:4c08] [com.apple.BoardServices:Injection] activating monitor for service com.apple.frontboard.open
+2026-10-11 16:43:29.650 Df DarkPrinceVPN[4604:4c12] [com.apple.runningboard:connection] Handshake succeeded
+2026-10-11 16:43:29.650 Df DarkPrinceVPN[4604:4c12] [com.apple.runningboard:connection] Identity resolved as app<ru.darkprince.vpn((null))>
+2026-10-11 16:43:29.650 Df DarkPrinceVPN[4604:4c08] [com.apple.BoardServices:Injection] activating monitor for service com.apple.frontboard.workspace-service
+2026-10-11 16:43:29.651 Df DarkPrinceVPN[4604:4c08] [com.apple.FrontBoard:Common] FBSWorkspace registering source: com.apple.frontboard.systemappservices
+2026-10-11 16:43:29.651 Df DarkPrinceVPN[4604:4c0d] [com.apple.UIKit:BackgroundTask] Incrementing reference count for background assertion <BKSProcessAssertion: 0x600002108ff0>
+2026-10-11 16:43:29.651 Df DarkPrinceVPN[4604:4c0d] [com.apple.UIKit:BackgroundTask] Created background task <_UIBackgroundTaskInfo: 0x600001708ec0>: taskID = 1, taskName = Launch Background Task for Coalescing, creationTime = 295 (elapsed = 0).
+2026-10-11 16:43:29.651 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UIApplicationSceneKeyboardSettings on FBSSceneSettings
+2026-10-11 16:43:29.652 A  DarkPrinceVPN[4604:4c13] (RunningBoardServices) didChangeInheritances
+2026-10-11 16:43:29.653 Df DarkPrinceVPN[4604:4c08] [com.apple.FrontBoard:Common] FBSWorkspace connected to endpoint : <BSServiceConnectionEndpoint: 0x60000020b2e0; target: com.apple.frontboard.systemappservices; service: com.apple.frontboard.workspace-service>
+2026-10-11 16:43:29.654 Df DarkPrinceVPN[4604:4c08] [com.apple.FrontBoard:Common] <FBSWorkspaceScenesClient:0x600003008360 com.apple.frontboard.systemappservices> attempting immediate handshake from activate
+2026-10-11 16:43:29.654 Df DarkPrinceVPN[4604:4c08] [com.apple.FrontBoard:Common] <FBSWorkspaceScenesClient:0x600003008360 com.apple.frontboard.systemappservices> sent handshake
+2026-10-11 16:43:29.654 Df DarkPrinceVPN[4604:4c08] [com.apple.runningboard:general] Added observer for process assertions expiration warning: <_RBSExpirationWarningClient: 0x60000020d700>
+2026-10-11 16:43:29.654 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneOcclusionSettings> on FBSSceneSettings
+2026-10-11 16:43:29.655 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneInterfaceProtectionSettings> on FBSSceneSettings
+2026-10-11 16:43:29.656 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneLayoutPreferencesHostSettingsExtension on FBSSceneSettings
+2026-10-11 16:43:29.657 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneSafeAreaSettingsExtension on FBSSceneSettings
+2026-10-11 16:43:29.659 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:UIScreen] Evaluated capturing state as 0 on <UIScreen: 0x103306d90> for initial
+2026-10-11 16:43:29.659 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneLayoutPreferenceClientSettingsExtension on FBSSceneClientSettings
+2026-10-11 16:43:29.659 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:UIScreen] Evaluated capturing state as 0 on <UIScreen: 0x103306d90> for CADisplay KVO
+2026-10-11 16:43:29.660 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UIHomeAffordanceHostSceneSettings> on FBSSceneSettings
+2026-10-11 16:43:29.660 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISystemShellSceneHostingEnvironmentSettings on FBSSceneSettings
+2026-10-11 16:43:29.660 Df DarkPrinceVPN[4604:4c08] [com.apple.Accessibility:AXSupportCommon] Read CategoryName: per-app = 1, category name = (null)
+2026-10-11 16:43:29.660 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneRenderingEnvironmentSettings on FBSSceneSettings
+2026-10-11 16:43:29.660 Df DarkPrinceVPN[4604:4c08] [com.apple.Accessibility:AXSupportCommon] Read CategoryName: per-app = 0, category name = (null)
+2026-10-11 16:43:29.661 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneRenderingEnvironmentClientSettings> on FBSSceneClientSettings
+2026-10-11 16:43:29.662 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneTransitioningHostSettings> on FBSSceneSettings
+2026-10-11 16:43:29.663 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneFocusSystemSettings> on FBSSceneSettings
+2026-10-11 16:43:29.663 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneOrientationSettingsExtension on FBSSceneSettings
+2026-10-11 16:43:29.663 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneOrientationClientSettingsExtension on FBSSceneClientSettings
+2026-10-11 16:43:29.663 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneWindowingControlClientSettings on FBSSceneClientSettings
+2026-10-11 16:43:29.664 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneHostingContentSizePreferenceClientSettings> on FBSSceneClientSettings
+2026-10-11 16:43:29.664 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension _UISceneHostingTraitCollectionPropagationSettings on FBSSceneSettings
+2026-10-11 16:43:29.665 Df DarkPrinceVPN[4604:4c08] [com.apple.dt.xctest:Default] Registering for test daemon availability notify post.
+2026-10-11 16:43:29.666 Df DarkPrinceVPN[4604:4c08] [com.apple.dt.xctest:Default] notify_get_state check indicated test daemon not ready.
+2026-10-11 16:43:29.666 Df DarkPrinceVPN[4604:4c08] [com.apple.dt.xctest:Default] notify_get_state check indicated test daemon not ready.
+2026-10-11 16:43:29.666 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneHostingSheetPresentationSettings> on FBSSceneSettings
+2026-10-11 16:43:29.666 Df DarkPrinceVPN[4604:4c08] [com.apple.dt.xctest:Default] notify_get_state check indicated test daemon not ready.
+2026-10-11 16:43:29.667 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneHostingSheetPresentationClientSettings> on FBSSceneClientSettings
+2026-10-11 16:43:29.667 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason added: 11; deactivation reasons: 1024 -> 3072; animating application lifecycle event: 0
+2026-10-11 16:43:29.667 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneHostingEventDeferringSettings> on FBSSceneSettings
+2026-10-11 16:43:29.668 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <UIKit__UITypedKeyValueSceneSettings> on FBSSceneSettings
+2026-10-11 16:43:29.668 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <UIKit__UITypedKeyValueSceneSettings> on FBSSceneClientSettings
+2026-10-11 16:43:29.669 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneHostingViewControllerPreferencePropagationClientSettings> on FBSSceneClientSettings
+2026-10-11 16:43:29.669 Df DarkPrinceVPN[4604:4c0d] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneZoomTransitionSettings> on FBSSceneSettings
+2026-10-11 16:43:29.670 Df DarkPrinceVPN[4604:4c12] [com.apple.FrontBoard:SceneExtension] Realizing settings extension FBSSceneSettingsCore on FBSSceneSettings
+2026-10-11 16:43:29.671 Df DarkPrinceVPN[4604:4c12] [com.apple.FrontBoard:SceneExtension] Realizing settings extension FBSSceneClientSettingsCore on FBSSceneClientSettings
+2026-10-11 16:43:29.675 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason removed: 10; deactivation reasons: 3072 -> 2048; animating application lifecycle event: 0
+2026-10-11 16:43:29.676 Df DarkPrinceVPN[4604:4c12] [com.apple.FrontBoard:SceneExtension] UIMutableApplicationSceneSettings setting counterpart class: UIApplicationSceneSettings
+2026-10-11 16:43:29.677 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventBus] Event Timing Profile for Touch: not found, path="/System/Library/EventTimingProfiles/Sim.Touch.plist"
+2026-10-11 16:43:29.677 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventBus] Event Timing Profile for Pencil: not found, path="/System/Library/EventTimingProfiles/Sim.Pencil.plist"
+2026-10-11 16:43:29.677 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:UpdateScheduler] Selected display: name=LCD (PurpleMain), id=1
+2026-10-11 16:43:29.677 Df DarkPrinceVPN[4604:4c12] [com.apple.FrontBoard:SceneExtension] UIMutableApplicationSceneClientSettings setting counterpart class: UIApplicationSceneClientSettings
+2026-10-11 16:43:29.677 Df DarkPrinceVPN[4604:4c12] [com.apple.FrontBoard:SceneExtension] Realizing settings extension FBSSceneTransitionContextCore on FBSSceneTransitionContext
+2026-10-11 16:43:29.679 Df DarkPrinceVPN[4604:4c08] [com.apple.xpc:connection] [0x103007a40] activating connection: mach=true listener=false peer=false name=com.apple.lsd.mapdb
+2026-10-11 16:43:29.719 Df DarkPrinceVPN[4604:4c08] [com.apple.BoardServices:XPCErrors] [C:2] Alloc com.apple.backboard.hid-services.xpc
+2026-10-11 16:43:29.719 Df DarkPrinceVPN[4604:4c08] [com.apple.xpc:connection] [0x1032065a0] activating connection: mach=false listener=false peer=false name=(anonymous)
+2026-10-11 16:43:29.720 Df DarkPrinceVPN[4604:4c17] [com.apple.BackBoard:EventDelivery] BKSHIDEventDeliveryManager - connection activation
+2026-10-11 16:43:29.725 A  DarkPrinceVPN[4604:4c08] (Security) SecItemCopyMatching_ios
+2026-10-11 16:43:29.725 Df DarkPrinceVPN[4604:4c08] [com.apple.securityd:secitemratelimit] Not internal release, disabling SIRL
+2026-10-11 16:43:29.727 Df DarkPrinceVPN[4604:4c08] [com.apple.securityd:thread-local-client-debug] SecSecurityClientGet new thread!
+2026-10-11 16:43:29.728 Df DarkPrinceVPN[4604:4c08] [com.apple.securityd:keychain] System Keychain Always Supported set via feature flag to disabled
+2026-10-11 16:43:29.728 Df DarkPrinceVPN[4604:4c08] [com.apple.xpc:connection] [0x10320a8f0] activating connection: mach=true listener=false peer=false name=com.apple.securityd
+2026-10-11 16:43:29.737 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Will add backgroundTask with taskName: Persistent SceneSession Map Update, expirationHandler: <__NSGlobalBlock__: 0x1e61729e0>
+2026-10-11 16:43:29.737 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Reusing background assertion <BKSProcessAssertion: 0x600002108ff0>
+2026-10-11 16:43:29.737 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Incrementing reference count for background assertion <BKSProcessAssertion: 0x600002108ff0>
+2026-10-11 16:43:29.738 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Created background task <_UIBackgroundTaskInfo: 0x60000170e380>: taskID = 2, taskName = Persistent SceneSession Map Update, creationTime = 295 (elapsed = 0).
+2026-10-11 16:43:29.740 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason added: 5; deactivation reasons: 2048 -> 2080; animating application lifecycle event: 1
+2026-10-11 16:43:29.741 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Should send trait collection or coordinate space update, interface style 2 -> 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.742 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.745 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:HomeAffordanceObservation] Initializing: <_UIHomeAffordanceSceneNotifier: 0x600002909f80>; with scene: <UIWindowScene: 0x10330c860>
+2026-10-11 16:43:29.746 Df DarkPrinceVPN[4604:4c08] [com.apple.BacklightServices:scenes] 0x600000c16be0 setDelegate:<0x600000c11f50 _UIBacklightEnvironment> hasDelegate:YES for environment:sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:29.747 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.747 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventDeferring] [0x60000290c2a0] Initialized with scene: <UIWindowScene: 0x10330c860>; behavior: <_UIEventDeferringBehavior_iOS: 0x600000215c80>; availableForProcess: 1, systemShellManagesKeyboardFocus: 1
+2026-10-11 16:43:29.749 Df DarkPrinceVPN[4604:4c17] [com.apple.BackBoard:EventDelivery] BKSHIDEventObserver - connection activation
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.BackBoard:EventDelivery] policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x600002607540; process scope; status: target> was:none
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Setting default evaluation strategy for UIUserInterfaceIdiomPhone to LastOneWins
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Scene target of keyboard event deferring environment did change: 1; scene: UIWindowScene: 0x10330c860; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventDeferring] [0x60000290c2a0] Scene target of event deferring environments did update: scene: 0x10330c860; current systemShellManagesKeyboardFocus: 1; systemShellManagesKeyboardFocusForScene: 1; eligibleForRecordRemoval: 1;
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Scene became target of keyboard event deferring environment: UIWindowScene: 0x10330c860; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Stack[KeyWindow] 0x600000c025b0: Taking no further action for migration from LastOneWins -> SystemShellManaged as there are no scenes
+2026-10-11 16:43:29.750 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Setting default evaluation strategy for UIUserInterfaceIdiomPhone to SystemShellManaged
+2026-10-11 16:43:29.751 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Key window needs update: 0; currentKeyWindowScene: 0x0; evaluatedKeyWindowScene: 0x10330c860; currentApplicationKeyWindow: 0x0; evaluatedApplicationKeyWindow: 0x0; reason: UIWindowScene: 0x10330c860: Window scene became target of keyboard environment
+2026-10-11 16:43:29.752 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.753 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.827 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Orientation] <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F) Scene updated orientation preferences: none -> ( Pu )
+2026-10-11 16:43:29.827 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Key window API is scene-level: YES
+2026-10-11 16:43:29.828 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] UIWindowScene: 0x10330c860: Window became key in scene: UIWindow: 0x10300e020; contextId: 0x2726081D: reason: UIWindowScene: 0x10330c860: Window requested to become key in scene: 0x10300e020
+2026-10-11 16:43:29.828 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Key window needs update: 1; currentKeyWindowScene: 0x0; evaluatedKeyWindowScene: 0x10330c860; currentApplicationKeyWindow: 0x0; evaluatedApplicationKeyWindow: 0x10300e020; reason: UIWindowScene: 0x10330c860: Window requested to become key in scene: 0x10300e020
+2026-10-11 16:43:29.828 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Window did become application key: UIWindow: 0x10300e020; contextId: 0x2726081D; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:29.828 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventDeferring] [0x60000290c2a0] Begin local event deferring requested for token: 0x6000026004e0; environments: 1; reason: UIWindowScene: 0x10330c860: Begin event deferring in keyboardFocus for window: 0x10300e020
+2026-10-11 16:43:29.844 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.857 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:AppLifecycle] sceneOfRecord: sceneID: sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F  persistentID: D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:29.858 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Ignoring already applied deactivation reason: 5; deactivation reasons: 2080
+2026-10-11 16:43:29.858 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason added: 12; deactivation reasons: 2080 -> 6176; animating application lifecycle event: 1
+2026-10-11 16:43:29.859 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason removed: 11; deactivation reasons: 6176 -> 4128; animating application lifecycle event: 1
+2026-10-11 16:43:29.859 Df DarkPrinceVPN[4604:4c08] [com.apple.FrontBoard:SceneExtension] Realizing settings extension <_UISceneIntelligenceSupportSettings> on FBSSceneSettings
+2026-10-11 16:43:29.864 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:29.907 A  DarkPrinceVPN[4604:4c08] (CoreFoundation) Updating Key-Value Observers Of Preferences
+2026-10-11 16:43:29.915 Df DarkPrinceVPN[4604:4c0d] [com.apple.BackBoard:EventDelivery] policyStatus:<BKSHIDEventDeliveryPolicyObserver: 0x600002607540; token: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F; status: ancestor> was:target
+2026-10-11 16:43:29.939 Df DarkPrinceVPN[4604:4c17] [com.apple.UIIntelligenceSupport:xpc] establishing connection to agent
+2026-10-11 16:43:29.941 Df DarkPrinceVPN[4604:4c17] [com.apple.xpc:session] [0x600002102490] Session created.
+2026-10-11 16:43:29.941 Df DarkPrinceVPN[4604:4c17] [com.apple.xpc:session] [0x600002102490] Session created from connection [0x10300dee0]
+2026-10-11 16:43:29.941 Df DarkPrinceVPN[4604:4c17] [com.apple.xpc:connection] [0x10300dee0] activating connection: mach=true listener=false peer=false name=com.apple.uiintelligencesupport.agent
+2026-10-11 16:43:29.944 Df DarkPrinceVPN[4604:4c17] [com.apple.xpc:session] [0x600002102490] Session activated
+2026-10-11 16:43:30.194 Df DarkPrinceVPN[4604:4c17] [com.apple.xpc:connection] [0x10320d9b0] activating connection: mach=true listener=false peer=false name=com.apple.fontservicesd
+2026-10-11 16:43:30.261 Df DarkPrinceVPN[4604:4c17] [com.apple.UIKit:BackgroundTask] Ending background task with UIBackgroundTaskIdentifier: 2
+2026-10-11 16:43:30.261 Df DarkPrinceVPN[4604:4c17] [com.apple.UIKit:BackgroundTask] Ending task with identifier 2 and description: <_UIBackgroundTaskInfo: 0x60000170e380>: taskID = 2, taskName = Persistent SceneSession Map Update, creationTime = 295 (elapsed = 0), _expireHandler: <__NSGlobalBlock__: 0x1e61729e0>
+2026-10-11 16:43:30.261 Df DarkPrinceVPN[4604:4c17] [com.apple.UIKit:BackgroundTask] Decrementing reference count for assertion <BKSProcessAssertion: 0x600002108ff0> (used by background task with identifier 2: <_UIBackgroundTaskInfo: 0x60000170e380>: taskID = 2, taskName = Persistent SceneSession Map Update, creationTime = 295 (elapsed = 0))
+2026-10-11 16:43:30.345 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] Create activity from XPC object <nw_activity 50:1 [4854E48F-459E-40E9-8AA0-9DA53BE99B64] (reporting strategy default)>
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] Create activity from XPC object <nw_activity 50:2 [784FEA45-9146-4152-8C6E-8FFA8CB4763D] (reporting strategy default)>
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] Set activity <nw_activity 50:1 [4854E48F-459E-40E9-8AA0-9DA53BE99B64] (reporting strategy default)> as the global parent
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Ending background task with UIBackgroundTaskIdentifier: 1
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Ending task with identifier 1 and description: <_UIBackgroundTaskInfo: 0x600001708ec0>: taskID = 1, taskName = Launch Background Task for Coalescing, creationTime = 295 (elapsed = 0), _expireHandler: (null)
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Decrementing reference count for assertion <BKSProcessAssertion: 0x600002108ff0> (used by background task with identifier 1: <_UIBackgroundTaskInfo: 0x600001708ec0>: taskID = 1, taskName = Launch Background Task for Coalescing, creationTime = 295 (elapsed = 0))
+2026-10-11 16:43:30.401 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:BackgroundTask] Will invalidate assertion: <BKSProcessAssertion: 0x600002108ff0> for task identifier: 1
+2026-10-11 16:43:30.406 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:EventDeferring] [0x60000290c2a0] Scene target of event deferring environments did update: scene: 0x10330c860; current systemShellManagesKeyboardFocus: 1; systemShellManagesKeyboardFocusForScene: 1; eligibleForRecordRemoval: 1;
+2026-10-11 16:43:30.406 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyWindow] Scene became target of keyboard event deferring environment: UIWindowScene: 0x10330c860; scene identity: com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:30.411 Df DarkPrinceVPN[4604:4c08] [com.apple.Accessibility:AXCommon] Read Per-App on Init: Smart invert = (null)
+2026-10-11 16:43:30.411 Df DarkPrinceVPN[4604:4c08] [com.apple.runningboard:connection] Creating side-channel connection to com.apple.runningboard
+2026-10-11 16:43:30.411 Df DarkPrinceVPN[4604:4c08] [com.apple.xpc:connection] [0x103007cc0] activating connection: mach=true listener=false peer=false name=com.apple.runningboard
+2026-10-11 16:43:30.412 Df DarkPrinceVPN[4604:4c08] [com.apple.runningboard:process] Hit the server for a process handle df938ad000011fc that resolved to: [app<ru.darkprince.vpn((null))>:4604]
+2026-10-11 16:43:30.412 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:UpdateScheduler] Target list changed: <CADisplay:LCD PurpleMain>
+2026-10-11 16:43:30.413 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:AppLifecycle] sceneOfRecord: sceneID: sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F  persistentID: D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:30.414 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:30.414 Df DarkPrinceVPN[4604:4c17] [com.apple.networkextension:] Adding BF86305E-4B6F-4A0F-9F91-DCE4CF8577B5 to the loaded configurations
+2026-10-11 16:43:30.414 Df DarkPrinceVPN[4604:4c17] [com.apple.networkextension:] Reload from disk complete
+2026-10-11 16:43:30.414 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:InterfaceStyle] Not push traits update to screen for new style 2, <UIWindowScene: 0x10330c860> (D16581C2-707F-4AC7-AE7C-37AEFD04616F)
+2026-10-11 16:43:30.415 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:AppLifecycle] sceneOfRecord: sceneID: sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F  persistentID: D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:30.415 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason removed: 12; deactivation reasons: 4128 -> 32; animating application lifecycle event: 1
+2026-10-11 16:43:30.415 Df DarkPrinceVPN[4604:4c08] [com.apple.KeyboardArbiter:Client] Send setDeactivating: N (-DeactivationReason:SuspendedEventsOnly)
+2026-10-11 16:43:30.415 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:Application] Deactivation reason removed: 5; deactivation reasons: 32 -> 0; animating application lifecycle event: 0
+2026-10-11 16:43:30.417 Df DarkPrinceVPN[4604:4c08] [com.apple.KeyboardArbiter:Client] startConnection
+2026-10-11 16:43:30.417 E  DarkPrinceVPN[4604:4c18] [com.apple.networkextension:] current generation is 0, notification state == 0, token == 137
+2026-10-11 16:43:30.417 Df DarkPrinceVPN[4604:4c18] [com.apple.networkextension:] Clearing BF86305E-4B6F-4A0F-9F91-DCE4CF8577B5 from the loaded configurations
+2026-10-11 16:43:30.418 Df DarkPrinceVPN[4604:4c08] [com.apple.xpc:connection] [0x10300c080] activating connection: mach=true listener=false peer=false name=com.apple.UIKit.KeyboardManagement.hosted
+2026-10-11 16:43:30.418 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:AppLifecycle] sceneOfRecord: sceneID: sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F  persistentID: D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:30.418 Df DarkPrinceVPN[4604:4c18] [com.apple.networkextension:] Adding BF86305E-4B6F-4A0F-9F91-DCE4CF8577B5 to the loaded configurations
+2026-10-11 16:43:30.418 Df DarkPrinceVPN[4604:4c18] [com.apple.networkextension:] Reload from disk complete
+2026-10-11 16:43:30.421 A  DarkPrinceVPN[4604:4c18] (RunningBoardServices) didChangeInheritances
+2026-10-11 16:43:30.423 Df DarkPrinceVPN[4604:4c08] [com.apple.KeyboardArbiter:Client] handleKeyboardChange: set currentKeyboard:N (wasKeyboard:N)
+2026-10-11 16:43:30.425 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:KeyboardArbiterClientLog] isWritingToolsHandlingKeyboardTracking:Y (WT ready:Y, Arbiter ready:Y)
+2026-10-11 16:43:30.426 Df DarkPrinceVPN[4604:4c08] [com.apple.UIKit:AppLifecycle] sceneOfRecord: sceneID: sceneID:ru.darkprince.vpn-D16581C2-707F-4AC7-AE7C-37AEFD04616F  persistentID: D16581C2-707F-4AC7-AE7C-37AEFD04616F
+2026-10-11 16:43:30.428 A  DarkPrinceVPN[4604:4c18] (RunningBoardServices) didChangeInheritances
+2026-10-11 16:43:30.457 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] <nw_activity 50:1 [4854E48F-459E-40E9-8AA0-9DA53BE99B64] (global parent) (reporting strategy default) complete (reason success)> complete with reason 2 (success), duration 1161ms
+2026-10-11 16:43:30.457 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] <nw_activity 50:2 [784FEA45-9146-4152-8C6E-8FFA8CB4763D] (reporting strategy default) complete (reason success)> complete with reason 2 (success), duration 1161ms
+2026-10-11 16:43:30.457 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] Unsetting the global parent activity <nw_activity 50:1 [4854E48F-459E-40E9-8AA0-9DA53BE99B64] (global parent) (reporting strategy default) complete (reason success)>
+2026-10-11 16:43:30.457 Df DarkPrinceVPN[4604:4c08] [com.apple.network:activity] Unset the global parent activity
+2026-10-11 16:43:30.620 A  DarkPrinceVPN[4604:4c12] (RunningBoardServices) didChangeInheritances
+2026-10-11 16:43:30.795 A  DarkPrinceVPN[4604:4c18] (RunningBoardServices) didChangeInheritances
