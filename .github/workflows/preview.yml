@@ -1,0 +1,77 @@
+name: Preview
+
+# Запуск в симуляторе iPhone на раннере GitHub: скриншот, видео первых секунд,
+# лог приложения и сборка .app для appetize.io (симулятор прямо в браузере).
+# VPN в симуляторе не поднимется — Network Extension там не работает,
+# зато видно интерфейс и работу с кабинетом.
+on:
+  workflow_dispatch:
+
+jobs:
+  preview:
+    runs-on: macos-15
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Установить XcodeGen
+        run: brew install xcodegen xcbeautify
+
+      - name: Кэш ядра Xray
+        id: libxray-cache
+        uses: actions/cache@v4
+        with:
+          path: Vendor/LibXray.xcframework
+          key: libxray-${{ hashFiles('scripts/fetch-libxray.sh') }}
+
+      - name: Скачать ядро Xray
+        if: steps.libxray-cache.outputs.cache-hit != 'true'
+        run: ./scripts/fetch-libxray.sh
+
+      - name: Сгенерировать проект
+        run: xcodegen generate
+
+      - name: Собрать под симулятор
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project DarkPrinceVPN.xcodeproj \
+            -scheme DarkPrinceVPN \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcbeautify
+
+      - name: Запустить в симуляторе
+        run: |
+          APP=build/Build/Products/Debug-iphonesimulator/DarkPrinceVPN.app
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)["devices"]
+          ids = [x["udid"] for k, v in d.items() if "iOS" in k for x in v if x["name"].startswith("iPhone")]
+          print(ids[-1])')
+          mkdir -p out
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl ui "$UDID" appearance dark
+          xcrun simctl install "$UDID" "$APP"
+          xcrun simctl io "$UDID" recordVideo --codec h264 out/launch.mp4 &
+          REC=$!
+          sleep 2
+          xcrun simctl launch "$UDID" ru.darkprince.vpn
+          sleep 12
+          xcrun simctl io "$UDID" screenshot out/screen.png
+          kill -INT $REC
+          wait $REC || true
+          xcrun simctl spawn "$UDID" log show --last 2m --style compact \
+            --predicate 'process == "DarkPrinceVPN"' > out/app.log || true
+          ditto -c -k --keepParent "$APP" out/DarkPrinceVPN-simulator.zip
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ios-preview
+          path: out/
