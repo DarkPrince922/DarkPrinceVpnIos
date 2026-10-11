@@ -7,6 +7,9 @@ name: Preview
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   preview:
     runs-on: macos-15
@@ -75,3 +78,13 @@ jobs:
         with:
           name: ios-preview
           path: out/
+
+      # скриншот и видео — в ветку preview, чтобы смотреть прямо на GitHub
+      - name: Выложить в ветку preview
+        run: |
+          mkdir pub && cp out/screen.png out/launch.mp4 out/app.log pub/ 2>/dev/null || true
+          cd pub
+          git init -q -b preview
+          git add -A
+          git -c user.name="github-actions" -c user.email="actions@github.com" commit -q -m "preview ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" preview
